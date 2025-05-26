@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
@@ -5,6 +6,7 @@ import './globals.css';
 import { Providers } from './providers';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
+import VantaBackground from '@/components/VantaBackground'; // Import VantaBackground
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
@@ -26,9 +28,10 @@ export default function RootLayout({
           GeistMono.variable
         )}
       >
+        <VantaBackground /> {/* Add VantaBackground here */}
         <Providers>
           <SiteHeader />
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow relative z-10">{children}</main> {/* Ensure content is above Vanta */}
           <SiteFooter />
         </Providers>
       </body>
