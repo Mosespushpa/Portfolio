@@ -6,7 +6,6 @@ import './globals.css';
 import { Providers } from './providers';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
-// VantaBackground removed
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
@@ -28,10 +27,10 @@ export default function RootLayout({
           GeistMono.variable
         )}
       >
-        {/* VantaBackground component removed */}
+        {/* VantaBackground component is fully removed */}
         <Providers>
           <SiteHeader />
-          <main className="flex-grow">{children}</main> {/* Removed relative z-10 */}
+          <main className="flex-grow">{children}</main>
           <SiteFooter />
         </Providers>
       </body>
