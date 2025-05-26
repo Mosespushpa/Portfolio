@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Sparkles, Home, Lightbulb, Briefcase, Award, GraduationCap, Mail, Menu, X } from 'lucide-react';
 
 const navItems = [
-  { href: '/#hero', label: 'Home', icon: <Home className="h-5 w-5" /> }, // Icons will be used in mobile menu
+  { href: '/#hero', label: 'Home', icon: <Home className="h-5 w-5" /> },
   { href: '/#projects', label: 'Projects', icon: <Briefcase className="h-5 w-5" /> },
   { href: '/#skills', label: 'Skills', icon: <Lightbulb className="h-5 w-5" /> },
   { href: '/#achievements', label: 'Achievements', icon: <Award className="h-5 w-5" /> },
@@ -37,20 +37,19 @@ export function SiteHeader() {
           </span>
         </Link>
         
-        {/* Desktop Navigation: Centered */}
-        <nav className="hidden md:flex flex-1 items-center justify-center space-x-1">
+        {/* Desktop Navigation: Centered using mx-auto */}
+        <nav className="hidden md:flex items-center justify-center space-x-1 mx-auto">
           {navItems.map((item) => (
             <Link key={item.label} href={item.href} legacyBehavior passHref>
               <Button variant="ghost" className="text-sm font-medium text-foreground/70 hover:text-foreground px-3 py-2">
-                {/* Icons are not shown on desktop for a cleaner look by default */}
                 {item.label}
               </Button>
             </Link>
           ))}
         </nav>
 
-        {/* Right aligned items: Theme Toggle and Mobile Menu Trigger */}
-        <div className="flex items-center space-x-2 ml-4"> {/* ml-4 to give some space if desktop nav is short */}
+        {/* Right aligned items: Theme Toggle and Mobile Menu Trigger, pushed by ml-auto */}
+        <div className="flex items-center space-x-2 ml-auto"> 
           <ThemeToggle />
 
           {/* Mobile Menu Trigger */}
