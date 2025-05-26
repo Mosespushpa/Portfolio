@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Github, Linkedin, Mail, Download } from 'lucide-react';
@@ -12,8 +13,8 @@ const skills = [
 export function HeroSection() {
   return (
     <section id="hero" className="container mx-auto py-20 md:py-32">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+      <div className="flex flex-col md:flex-row gap-12 items-center">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left order-2 md:order-1">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
             Hi, I&apos;m <span className="text-primary">Moses Chinnappan</span>
           </h1>
@@ -46,7 +47,7 @@ export function HeroSection() {
             </a>
           </div>
         </div>
-        <div className="relative group flex justify-center">
+        <div className="relative group flex justify-center order-1 md:order-2">
           <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-full blur-xl opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
           <Image
             src="https://placehold.co/300x300.png"
