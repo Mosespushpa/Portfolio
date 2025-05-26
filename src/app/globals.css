@@ -39,9 +39,9 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
 
-    /* Variables for animated background - NO LONGER USED FOR WAVE ANIMATION */
-    /* --background-wave-one: 180 8% 94%; */
-    /* --background-wave-two: 180 4% 88%; */
+    /* Variables for animated background */
+    --background-wave-one: 180 8% 94%;
+    --background-wave-two: 180 4% 88%;
   }
 
   .dark {
@@ -79,9 +79,9 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
 
-    /* Variables for animated background in dark mode - NO LONGER USED FOR WAVE ANIMATION */
-    /* --background-wave-one: 220 10% 15%; */
-    /* --background-wave-two: 220 10% 9%; */
+    /* Variables for animated background in dark mode */
+    --background-wave-one: 220 10% 15%;
+    --background-wave-two: 220 10% 9%;
   }
 }
 
@@ -92,9 +92,9 @@
   body {
     @apply text-foreground;
     font-family: var(--font-geist-sans), sans-serif;
-    /* Removed previous background gradient and animation for Vanta.js */
-    /* Ensure body itself doesn't have a background that would cover Vanta */
-    background-color: transparent; 
+    background: linear-gradient(-45deg, hsl(var(--background-wave-one)), hsl(var(--background-wave-two)), hsl(var(--background-wave-one)), hsl(var(--background-wave-two)));
+    background-size: 400% 400%;
+    animation: waveAnimation 15s ease infinite;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
@@ -107,8 +107,6 @@
   }
 }
 
-/* Removed waveAnimation keyframes as it's no longer used */
-/*
 @keyframes waveAnimation {
   0% {
     background-position: 0% 50%;
@@ -120,4 +118,3 @@
     background-position: 0% 50%;
   }
 }
-*/

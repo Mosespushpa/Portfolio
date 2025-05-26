@@ -6,7 +6,7 @@ import './globals.css';
 import { Providers } from './providers';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
-import VantaBackground from '@/components/VantaBackground'; // Import VantaBackground
+// VantaBackground removed
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
@@ -28,10 +28,10 @@ export default function RootLayout({
           GeistMono.variable
         )}
       >
-        <VantaBackground /> {/* Add VantaBackground here */}
+        {/* VantaBackground component removed */}
         <Providers>
           <SiteHeader />
-          <main className="flex-grow relative z-10">{children}</main> {/* Ensure content is above Vanta */}
+          <main className="flex-grow">{children}</main> {/* Removed relative z-10 */}
           <SiteFooter />
         </Providers>
       </body>
