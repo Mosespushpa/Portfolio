@@ -38,6 +38,10 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+
+    /* Variables for animated background */
+    --background-wave-one: 180 8% 94%;
+    --background-wave-two: 180 4% 88%;
   }
 
   .dark {
@@ -74,6 +78,10 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+
+    /* Variables for animated background in dark mode */
+    --background-wave-one: 220 10% 15%;
+    --background-wave-two: 220 10% 9%;
   }
 }
 
@@ -82,8 +90,12 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    /* @apply bg-background text-foreground; Removed bg-background */
+    @apply text-foreground;
     font-family: var(--font-geist-sans), sans-serif;
+    background: linear-gradient(-45deg, hsl(var(--background)), hsl(var(--background-wave-one)), hsl(var(--background-wave-two)), hsl(var(--background)));
+    background-size: 400% 400%;
+    animation: waveAnimation 20s ease infinite;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
@@ -93,5 +105,17 @@
   h3 { @apply text-2xl sm:text-3xl; }
   section {
     @apply py-16 sm:py-20 md:py-24;
+  }
+}
+
+@keyframes waveAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
