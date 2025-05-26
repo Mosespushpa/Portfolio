@@ -1,6 +1,9 @@
+
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
-import { SkillsSection } from '@/components/sections/SkillsSection'; // New import
+import { SkillsSection } from '@/components/sections/SkillsSection';
+import { AchievementsSection } from '@/components/sections/AchievementsSection'; // New import
+import { EducationSection } from '@/components/sections/EducationSection'; // New import
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { ContactFormSection } from '@/components/sections/ContactFormSection';
 import { AnimatedSection } from '@/components/AnimatedSection';
@@ -17,7 +20,15 @@ export default function PortfolioPage() {
       </AnimatedSection>
 
       <AnimatedSection delay={200}>
-        <SkillsSection /> {/* Replaced SummaryGeneratorSection */}
+        <SkillsSection />
+      </AnimatedSection>
+
+      <AnimatedSection delay={200}>
+        <AchievementsSection /> {/* New section */}
+      </AnimatedSection>
+
+      <AnimatedSection delay={200}>
+        <EducationSection /> {/* New section */}
       </AnimatedSection>
 
       <AnimatedSection delay={200}>
