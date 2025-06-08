@@ -1,4 +1,7 @@
+
 'use server';
+
+import sgMail from '@sendgrid/mail';
 
 interface ContactFormData {
   name: string;
@@ -15,19 +18,23 @@ interface ActionResult {
 export async function sendContactEmail(data: ContactFormData): Promise<ActionResult> {
   console.log('Received contact form data:', data);
 
+  if (!process.env.SENDGRID_API_KEY) {
+    console.error('SENDGRID_API_KEY is not set. Email will not be sent.');
+    return { success: false, message: 'Server configuration error: Email service is not set up.' };
+  }
+
   // Simulate API call / email sending
-  await new Promise(resolve => setTimeout(resolve, 1500));
+  // await new Promise(resolve => setTimeout(resolve, 1500));
 
   // Simulate success
   if (!data.email || !data.name || !data.message) {
     return { success: false, message: 'Invalid data provided. (Simulated)' };
   }
 
-  const sgMail = require('@sendgrid/mail');
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const msg = {
     to: 'moses21games@gmail.com', // Change to your recipient
-    from: 'noreply@yourdomain.com', // Change to your verified sender
+    from: 'noreply@yourdomain.com', // Change to your verified sender on SendGrid
     subject: `New Contact Form Submission from ${data.name}`,
     text: `Name: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`,
     html: `<p><strong>Name:</strong> ${data.name}</p><p><strong>Email:</strong> ${data.email}</p><p><strong>Message:</strong> ${data.message}</p>`,
@@ -37,6 +44,11 @@ export async function sendContactEmail(data: ContactFormData): Promise<ActionRes
     return { success: true, message: 'Your message has been sent successfully!' };
   } catch (error) {
     console.error('SendGrid error:', error);
+    // It's good to avoid exposing detailed error structures to the client.
+    // Check if error has a response and body for more specific SendGrid errors.
+    if (error.response) {
+      console.error(error.response.body)
+    }
     return { success: false, message: 'Failed to send message due to a server error.' };
   }
 }
