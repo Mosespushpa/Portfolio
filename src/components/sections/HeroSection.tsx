@@ -42,7 +42,7 @@ export function HeroSection() {
             <a href="https://www.linkedin.com/in/moses-chinnappan-b96640219" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
               <Button variant="ghost" size="icon"><Linkedin className="h-6 w-6 text-muted-foreground hover:text-primary" /></Button>
             </a>
-            <a href="https://github.com/mosesC29" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"> {/* Placeholder GitHub */}
+            <a href="https://github.com/Mosespushpa" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"> {/* Placeholder GitHub */}
               <Button variant="ghost" size="icon"><Github className="h-6 w-6 text-muted-foreground hover:text-primary" /></Button>
             </a>
           </div>
@@ -50,7 +50,7 @@ export function HeroSection() {
         <div className="relative group flex justify-center order-1 md:order-2">
           <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-full blur-xl opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
           <Image
-            src="/profile-moses.jpg"
+            src="/profile-moses.jpg" // Corrected path
             alt="Moses Chinnappan"
             width={300}
             height={300}
