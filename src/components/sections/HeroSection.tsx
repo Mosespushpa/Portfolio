@@ -50,7 +50,7 @@ export function HeroSection() {
         <div className="relative group flex justify-center order-1 md:order-2">
           <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-full blur-xl opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
           <Image
-            src="https://placehold.co/300x300.png"
+            src="/profile-moses.jpg"
             alt="Moses Chinnappan"
             width={300}
             height={300}
