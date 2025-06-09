@@ -17,27 +17,37 @@ interface ActionResult {
 export async function sendContactEmail(data: ContactFormData): Promise<ActionResult> {
   console.log('Received contact form data:', data);
 
-  const myEmail = process.env.MY_EMAIL_ADDRESS || 'moses21games@gmail.com'; // Your recipient email
-  const verifiedSenderEmail = process.env.VERIFIED_SENDER_EMAIL || 'noreply@yourdomain.com'; // Must be a verified sender in SendGrid
+  // === Email Addresses ===
+  // The following email addresses will be used.
+  // If you have hardcoded your specific email addresses here, ensure they are correct.
+  // For more flexibility, consider using environment variables for these as well.
+  const myEmail = 'moses21games@gmail.com'; // REPLACE THIS WITH YOUR ACTUAL RECIPIENT EMAIL if you hardcoded a different one
+  const verifiedSenderEmail = 'moses21games@gmail.com'; // REPLACE THIS WITH YOUR ACTUAL VERIFIED SENDER EMAIL if you hardcoded a different one
 
-  if (!process.env.SENDGRID_API_KEY) {
-    console.error('SENDGRID_API_KEY is not set. Email will not be sent.');
-    // For security, don't expose this specific error message to the client in production.
-    // However, for development/debugging, it's useful to know.
-    // In a real app, you might return a more generic error.
-    return { success: false, message: 'Server configuration error. Please contact support.' };
+
+  // === SENDGRID API KEY - MUST BE AN ENVIRONMENT VARIABLE ===
+  // The API key for SendGrid MUST be provided as an environment variable
+  // named SENDGRID_API_KEY in your Firebase App Hosting backend configuration.
+  const apiKey = process.env.SENDGRID_API_KEY;
+
+  if (!apiKey) {
+    console.error('SENDGRID_API_KEY environment variable is not set. Email will not be sent.');
+    return { 
+      success: false, 
+      message: 'Server configuration error: The SENDGRID_API_KEY environment variable is missing. Please set it in your Firebase App Hosting backend configuration and redeploy.' 
+    };
   }
 
   if (!data.email || !data.name || !data.message) {
     return { success: false, message: 'Invalid data provided. All fields are required.' };
   }
 
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  sgMail.setApiKey(apiKey); // Use the apiKey from process.env
 
   const msg = {
     to: myEmail,
-    from: verifiedSenderEmail, // Use the verified sender email address
-    replyTo: data.email, // So you can reply directly to the user
+    from: verifiedSenderEmail, 
+    replyTo: data.email,
     subject: `New Contact Form Submission from ${data.name}`,
     text: `You have a new message from your portfolio contact form:\n\nName: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`,
     html: `
@@ -55,11 +65,9 @@ export async function sendContactEmail(data: ContactFormData): Promise<ActionRes
     return { success: true, message: 'Your message has been sent successfully!' };
   } catch (error: any) {
     console.error('Error sending email with SendGrid:', error);
-    // Log the detailed error on the server
     if (error.response) {
       console.error('SendGrid error response body:', error.response.body);
     }
-    // Return a generic error message to the client
     return { success: false, message: 'Failed to send message due to a server error. Please try again later.' };
   }
 }
