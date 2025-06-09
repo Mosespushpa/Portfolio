@@ -9,8 +9,8 @@ const testimonials = [
     name: "Tuge Venkatesam",
     title: "Project Manager, Tech Solutions Inc.",
     avatarFallbackText: "TV",
-    profilePhotoUrl: "/testimonial_images/tuge_venkatesam.jpg", 
-    imageHint: "Tuge Venkatesam professional headshot",
+    // profilePhotoUrl: "/testimonial_images/tuge_venkatesam.jpg", 
+    // imageHint: "Tuge Venkatesam professional headshot",
     quote: "Moses is a highly skilled engineer who consistently delivers quality work. His expertise in cloud technologies was invaluable to our project's success. He's a true asset to any team.",
     linkedinUrl: "https://www.linkedin.com/in/janedoe-example/", // Replace with actual LinkedIn URL
   },
@@ -18,8 +18,8 @@ const testimonials = [
     name: "John Smith",
     title: "Lead Developer, Innovate Hub",
     avatarFallbackText: "JS",
-    profilePhotoUrl: "/testimonial_images/john_smith.jpg",
-    imageHint: "John Smith professional headshot",
+    // profilePhotoUrl: "/testimonial_images/john_smith.jpg",
+    // imageHint: "John Smith professional headshot",
     quote: "Working with Moses was a pleasure. He's a great communicator, a proactive problem-solver, and his technical abilities are top-notch. Highly recommend!",
     linkedinUrl: "https://www.linkedin.com/in/johnsmith-example/", // Replace with actual LinkedIn URL
   },
@@ -27,8 +27,8 @@ const testimonials = [
     name: "Alice Brown",
     title: "CEO, Startup Next",
     avatarFallbackText: "AB",
-    profilePhotoUrl: "/testimonial_images/alice_brown.jpg",
-    imageHint: "Alice Brown professional headshot",
+    // profilePhotoUrl: "/testimonial_images/alice_brown.jpg",
+    // imageHint: "Alice Brown professional headshot",
     quote: "Moses quickly understood our complex requirements and delivered an exceptional product. His dedication and innovative thinking were key to our launch.",
     linkedinUrl: "https://www.linkedin.com/in/alicebrown-example/", // Replace with actual LinkedIn URL
   },
@@ -49,9 +49,8 @@ export function TestimonialsSection() {
                 <div className="flex items-center space-x-4">
                   <Avatar className="h-12 w-12">
                     <AvatarImage 
-                      src={testimonial.profilePhotoUrl} 
+                      src={undefined} // Ensuring src is undefined or removed
                       alt={testimonial.name} 
-                      data-ai-hint={testimonial.imageHint} 
                     />
                     <AvatarFallback>{testimonial.avatarFallbackText}</AvatarFallback>
                   </Avatar>
@@ -67,7 +66,7 @@ export function TestimonialsSection() {
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
               </CardContent>
-              {testimonial.linkedinUrl && testimonial.linkedinUrl !== "https://www.linkedin.com/in/placeholder/" && ( // Updated this condition slightly for clarity
+              {testimonial.linkedinUrl && testimonial.linkedinUrl !== "https://www.linkedin.com/in/placeholder/" && ( 
                  <CardFooter>
                     <Button variant="ghost" size="sm" asChild className="hover:scale-105 transform transition-transform duration-200">
                       <a href={testimonial.linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary flex items-center">

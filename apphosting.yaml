@@ -11,7 +11,7 @@ runConfig:
 # Directly setting the API key here is NOT secure for public repositories.
 # This is for debugging only. If this works, we must revert to Secret Manager.
 environmentVariables:
-  SENDGRID_API_KEY: "YOUR_ACTUAL_SENDGRID_API_KEY_HERE" # <<< REPLACE THIS WITH YOUR REAL KEY
+  SENDGRID_API_KEY: "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" # <<< REPLACE THIS WITH YOUR REAL KEY
 
 # For better security, especially for production, use Google Cloud Secret Manager:
 # https://firebase.google.com/docs/app-hosting/configure#secret-manager
