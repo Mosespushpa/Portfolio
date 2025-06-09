@@ -15,19 +15,19 @@ interface ActionResult {
 }
 
 export async function sendContactEmail(data: ContactFormData): Promise<ActionResult> {
+  // Log all available environment variables for debugging
+  console.log('Available environment variables on server:', JSON.stringify(process.env, null, 2));
+
   console.log('Received contact form data:', data);
 
   // === Email Addresses ===
-  // The following email addresses will be used.
-  // If you have hardcoded your specific email addresses here, ensure they are correct.
-  // For more flexibility, consider using environment variables for these as well.
-  const myEmail = 'moses21games@gmail.com'; // REPLACE THIS WITH YOUR ACTUAL RECIPIENT EMAIL if you hardcoded a different one
-  const verifiedSenderEmail = 'moses21games@gmail.com'; // REPLACE THIS WITH YOUR ACTUAL VERIFIED SENDER EMAIL if you hardcoded a different one
+  // These are the email addresses that will be used.
+  // Replace these with your actual email addresses.
+  const myEmail = 'moses21games@gmail.com'; 
+  const verifiedSenderEmail = 'moses21games@gmail.com'; 
 
 
   // === SENDGRID API KEY - MUST BE AN ENVIRONMENT VARIABLE ===
-  // The API key for SendGrid MUST be provided as an environment variable
-  // named SENDGRID_API_KEY in your Firebase App Hosting backend configuration.
   const apiKey = process.env.SENDGRID_API_KEY;
 
   if (!apiKey) {
@@ -42,7 +42,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<ActionRes
     return { success: false, message: 'Invalid data provided. All fields are required.' };
   }
 
-  sgMail.setApiKey(apiKey); // Use the apiKey from process.env
+  sgMail.setApiKey(apiKey);
 
   const msg = {
     to: myEmail,

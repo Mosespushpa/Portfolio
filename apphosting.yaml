@@ -1,3 +1,4 @@
+
 # Settings to manage and configure a Firebase App Hosting backend.
 # https://firebase.google.com/docs/app-hosting/configure
 
@@ -6,10 +7,16 @@ runConfig:
   # more instances in response to increased traffic.
   maxInstances: 1
 
+# === IMPORTANT: TEMPORARY DEBUGGING STEP ===
+# Directly setting the API key here is NOT secure for public repositories.
+# This is for debugging only. If this works, we must revert to Secret Manager.
+environmentVariables:
+  SENDGRID_API_KEY: "YOUR_ACTUAL_SENDGRID_API_KEY_HERE" # <<< REPLACE THIS WITH YOUR REAL KEY
+
 # For better security, especially for production, use Google Cloud Secret Manager:
 # https://firebase.google.com/docs/app-hosting/configure#secret-manager
-secrets:
-  - name: SENDGRID_API_KEY # This is how your app will access it: process.env.SENDGRID_API_KEY
-    # Using the numeric Project ID from your Secret Manager screenshot.
-    # Ensure 'sendgrid-api-key' is the EXACT name you gave your secret.
-    secretVersion: projects/553208889393/secrets/sendgrid-api-key/versions/1
+# secrets:
+#   - name: SENDGRID_API_KEY # This is how your app will access it: process.env.SENDGRID_API_KEY
+#     # Using the numeric Project ID from your Secret Manager.
+#     # Ensure 'sendgrid-api-key' is the EXACT name you gave your secret.
+#     secretVersion: projects/553208889393/secrets/sendgrid-api-key/versions/1
