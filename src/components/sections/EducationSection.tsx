@@ -1,6 +1,6 @@
 
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
-import { GraduationCap, School, BookOpen } from 'lucide-react'; // Example icons
+import { GraduationCap, School } from 'lucide-react';
 
 const educationHistory = [
   {
@@ -8,7 +8,8 @@ const educationHistory = [
     degree: "Bachelor of Engineering in Computer Science",
     institution: "ACE Engineering College",
     date: "2021 - 2025",
-    description: "Specialized in Data Science",
+    description: "Specialized in Data Science.",
+    grade: "CGPA: 8.7/10 (Until 3rd Year)", // Example, replace with actual
     imageHint: "university campus generic"
   },
   {
@@ -16,17 +17,18 @@ const educationHistory = [
     degree: "Telangana State Board of Intermediate Education",
     institution: "Sri Medha V Junior College",
     date: "2019 - 2021",
-    description: "MPC - (Mathematics, Physcis, Chemistry ) ",
-    
-    imageHint: "Intermediate"
+    description: "MPC - (Mathematics, Physics, Chemistry).",
+    grade: "Percentage: 96%", // Example, replace with actual
+    imageHint: "Intermediate college building"
   },
   {
     icon: <School className="h-8 w-8 text-primary" />,
     degree: "Board of Secondary Education, Telangana State",
     institution: "Fr. Bendel E.M High School",
     date: "2019",
-    description: "10th",
-    imageHint: "SSC"
+    description: "Secondary School Certificate (SSC).",
+    grade: "GPA: 9.7/10", // Example, replace with actual
+    imageHint: "school building classroom"
   }
 ];
 
@@ -50,8 +52,9 @@ export function EducationSection() {
                   <CardDescription className="text-sm">{edu.institution} - {edu.date}</CardDescription>
                 </div>
               </CardHeader>
-              <CardContent className="flex-grow">
+              <CardContent className="flex-grow space-y-2">
                 <p className="text-sm text-muted-foreground">{edu.description}</p>
+                {edu.grade && <p className="text-sm font-semibold text-primary">{edu.grade}</p>}
               </CardContent>
             </Card>
           ))}

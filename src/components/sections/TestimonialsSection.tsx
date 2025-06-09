@@ -1,31 +1,35 @@
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Quote } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Quote, Linkedin } from 'lucide-react';
 
 const testimonials = [
   {
     name: "Jane Doe",
     title: "Project Manager, Tech Solutions Inc.",
     avatar: "JD",
-    avatarImage: "https://placehold.co/100x100.png?text=JD",
-    imageHint: "person avatar",
+    avatarImage: "https://placehold.co/100x100.png?text=JD", // Replace with actual image URL
+    imageHint: "person avatar professional",
     quote: "Moses is a highly skilled engineer who consistently delivers quality work. His expertise in cloud technologies was invaluable to our project's success. He's a true asset to any team.",
+    linkedinUrl: "https://www.linkedin.com/in/janedoe-example/", // Replace with actual LinkedIn URL
   },
   {
     name: "John Smith",
     title: "Lead Developer, Innovate Hub",
     avatar: "JS",
-    avatarImage: "https://placehold.co/100x100.png?text=JS",
-    imageHint: "person avatar",
+    avatarImage: "https://placehold.co/100x100.png?text=JS", // Replace with actual image URL
+    imageHint: "person avatar professional",
     quote: "Working with Moses was a pleasure. He's a great communicator, a proactive problem-solver, and his technical abilities are top-notch. Highly recommend!",
+    linkedinUrl: "https://www.linkedin.com/in/johnsmith-example/", // Replace with actual LinkedIn URL
   },
   {
     name: "Alice Brown",
     title: "CEO, Startup Next",
     avatar: "AB",
-    avatarImage: "https://placehold.co/100x100.png?text=AB",
-    imageHint: "person avatar",
+    avatarImage: "https://placehold.co/100x100.png?text=AB", // Replace with actual image URL
+    imageHint: "person avatar professional",
     quote: "Moses quickly understood our complex requirements and delivered an exceptional product. His dedication and innovative thinking were key to our launch.",
+    linkedinUrl: "https://www.linkedin.com/in/alicebrown-example/", // Replace with actual LinkedIn URL
   },
 ];
 
@@ -58,6 +62,15 @@ export function TestimonialsSection() {
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
               </CardContent>
+              {testimonial.linkedinUrl && testimonial.linkedinUrl !== "https://www.linkedin.com/in/placeholder/" && (
+                 <CardFooter>
+                    <Button variant="ghost" size="sm" asChild>
+                      <a href={testimonial.linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary flex items-center">
+                        <Linkedin className="mr-2 h-4 w-4" /> View LinkedIn Profile
+                      </a>
+                    </Button>
+                 </CardFooter>
+              )}
             </Card>
           ))}
         </div>

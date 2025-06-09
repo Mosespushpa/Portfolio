@@ -8,8 +8,8 @@ const projects = [
   {
     title: "Yield Forecast: Weather & Pesticides",
     description: "This project forecasts crop yields using meteorological and pesticide data with machine learning models like Random Forest and XGBoost. It supports data-driven agricultural planning.",
-    image: "/home/user/studio/public/project_image/crop.jpg",
-    imageHint: "Predictive Analysis",
+    image: "/project_images/crop.jpg", // Updated path
+    imageHint: "Predictive Analysis agricultural technology",
     tags: ["Python","React.js", "FastAPI", "AI/ML"],
     liveLink: "#",
     repoLink: "https://github.com/Mosespushpa/crop_yield_predictor",
@@ -17,8 +17,8 @@ const projects = [
   {
     title: "Feature Specific Sentiment Analysis",
     description: "Developed a sentiment analysis model using NLP to classify iPhone reviews by features, with results visualized through an interactive dashboard for better insights.",
-    image: "/home/user/studio/public/project_image/sentiment.jpg",
-    imageHint: "Sentiment Analysis",
+    image: "/project_images/sentiment.jpg", // Updated path
+    imageHint: "Sentiment Analysis NLP data visualization",
     tags: ["Python","NLP", "Jupyter Notebook","Sentiment Analysis"],
     liveLink: "#",
     repoLink: "https://github.com/Mosespushpa/Sentiment-Analysis-of-product-reviews",
@@ -26,8 +26,8 @@ const projects = [
   {
     title: "MTY SHOP-WHEELS",
     description: "Developed a service-based website showcasing vehicle services and sales, featuring interactive sections like Services, Gallery, Sales, and team profiles to enhance user engagement.",
-    image: "/home/user/studio/public/project_image/mty.jpg",
-    imageHint: "A Service Network",
+    image: "/project_images/mty.jpg", // Updated path
+    imageHint: "Service Network automotive website",
     tags: ["Frontend", "HTML", "CSS"],
     liveLink: "https://mosespushpa.github.io/mty/",
     repoLink: "https://github.com/Mosespushpa/mty",
@@ -65,12 +65,12 @@ export function ProjectsSection() {
               </CardContent>
               <CardFooter className="flex justify-between items-center">
                 <Button variant="ghost" asChild>
-                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="flex items-center">
                     Live Demo <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
                 <Button variant="outline" asChild>
-                  <a href={project.repoLink} target="_blank" rel="noopener noreferrer">
+                  <a href={project.repoLink} target="_blank" rel="noopener noreferrer" className="flex items-center">
                     <Github className="mr-2 h-4 w-4" /> Source
                   </a>
                 </Button>
@@ -80,7 +80,7 @@ export function ProjectsSection() {
         </div>
         <div className="text-center mt-12">
           <Button size="lg" variant="link" asChild>
-            <a href="https://github.com/Mosespushpa" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Mosespushpa" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
               View More on GitHub <ArrowRight className="ml-2 h-5 w-5" />
             </a>
           </Button>

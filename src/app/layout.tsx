@@ -27,10 +27,9 @@ export default function RootLayout({
           GeistMono.variable
         )}
       >
-        {/* VantaBackground component is fully removed */}
         <Providers>
           <SiteHeader />
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow px-4 sm:px-6 lg:px-8">{children}</main>
           <SiteFooter />
         </Providers>
       </body>
