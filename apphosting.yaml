@@ -10,6 +10,6 @@ runConfig:
 # https://firebase.google.com/docs/app-hosting/configure#secret-manager
 secrets:
   - name: SENDGRID_API_KEY # This is how your app will access it: process.env.SENDGRID_API_KEY
-    # IMPORTANT: Replace 'portfolio-moses' with YOUR Google Cloud Project ID if it's different.
-    # IMPORTANT: Replace 'sendgrid-api-key' with the EXACT name you gave your secret in Google Cloud Secret Manager if it's different.
-    secretVersion: projects/portfolio-moses/secrets/sendgrid-api-key/versions/latest
+    # Using the numeric Project ID from your Secret Manager screenshot.
+    # Ensure 'sendgrid-api-key' is the EXACT name you gave your secret.
+    secretVersion: projects/553208889393/secrets/sendgrid-api-key/versions/latest
