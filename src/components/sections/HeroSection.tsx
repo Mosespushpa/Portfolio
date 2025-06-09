@@ -5,9 +5,8 @@ import { Github, Linkedin, Mail, Download } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 const skills = [
-  "Full Stack Development", "Cloud (AWS, GCP)", "Gen AI", "DevOps", 
-  "React", "Next.js", "Node.js", "Python", "Java", "TypeScript", 
-  "Docker", "Kubernetes", "Terraform", "SQL", "NoSQL"
+  "Python", "Java","Machine Learning", "Cloud (AWS, GCP)", "Gen AI", "DevOps", 
+  "React", "SQL", "NoSQL"
 ];
 
 export function HeroSection() {
@@ -19,7 +18,7 @@ export function HeroSection() {
             Hi, I&apos;m <span className="text-primary">Moses Chinnappan</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-6">
-            Full Stack Engineer specializing in building modern web applications and exploring the frontiers of Generative AI.
+          Turning data into decisions. Creating AI-driven solutions with impact. Aspiring Data Scientist & Full-Stack Developer | Innovating at the intersection of technology and purpose.
           </p>
           <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-8">
             {skills.slice(0, 5).map(skill => ( // Show first 5 prominent skills
@@ -45,6 +44,7 @@ export function HeroSection() {
             <a href="https://github.com/Mosespushpa" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"> {/* Placeholder GitHub */}
               <Button variant="ghost" size="icon"><Github className="h-6 w-6 text-muted-foreground hover:text-primary" /></Button>
             </a>
+            
           </div>
         </div>
         <div className="relative group flex justify-center order-1 md:order-2">

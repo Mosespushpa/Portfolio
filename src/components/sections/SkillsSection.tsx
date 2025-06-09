@@ -4,34 +4,29 @@ import { Layers, Database, Cloud, Code, Cpu, Brain, Palette, Terminal } from 'lu
 
 const skillCategories = [
   {
+    title: "Languages",
+    icon: <Terminal className="h-6 w-6 text-primary" />,
+    skills: [ "Python", "Java","SQL"],
+  },
+  {
     title: "Frontend Development",
     icon: <Palette className="h-6 w-6 text-primary" />,
-    skills: ["React", "Next.js", "HTML5", "CSS3", "Tailwind CSS", "TypeScript"],
-  },
-  {
-    title: "Backend Development",
-    icon: <Code className="h-6 w-6 text-primary" />,
-    skills: ["Node.js", "Python", "Java", "Express.js", "REST APIs"],
-  },
-  {
-    title: "Full Stack Expertise",
-    icon: <Layers className="h-6 w-6 text-primary" />,
-    skills: ["Full Stack Development", "Application Architecture", "Microservices"],
+    skills: ["React", "Next.js", "HTML5", "CSS3"],
   },
   {
     title: "Databases",
     icon: <Database className="h-6 w-6 text-primary" />,
-    skills: ["SQL (PostgreSQL, MySQL)", "NoSQL (MongoDB, Firebase)"],
+    skills: ["SQL (MySQL)", "NoSQL (Firebase)", "Hadoop" ],
   },
   {
-    title: "Cloud & DevOps",
+    title: "Cloud",
     icon: <Cloud className="h-6 w-6 text-primary" />,
-    skills: ["AWS", "GCP", "Docker", "Kubernetes", "Terraform", "CI/CD", "DevOps Practices"],
+    skills: ["AWS", "GCP"],
   },
   {
-    title: "Languages",
-    icon: <Terminal className="h-6 w-6 text-primary" />,
-    skills: ["TypeScript", "JavaScript", "Python", "Java", "Go"],
+    title: "Machine Leaning",
+    icon: <Brain className="h-6 w-6 text-primary" />,
+    skills: ["XGBoost", "NLP", "Sentiment Analysis"],
   },
   {
     title: "Generative AI",
@@ -39,9 +34,9 @@ const skillCategories = [
     skills: ["Genkit", "LLM Integration", "Prompt Engineering"],
   },
   {
-    title: "Other Technologies",
+    title: "Libraries & Frameworks",
     icon: <Cpu className="h-6 w-6 text-primary" />,
-    skills: ["Git", "Agile Methodologies", "Problem Solving"],
+    skills: ["NumPy" ,"Pandas" ,"Jupyter Notebook" ,"VSCode"],
   }
 ];
 

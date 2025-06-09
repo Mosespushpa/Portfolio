@@ -5,27 +5,28 @@ import { GraduationCap, School, BookOpen } from 'lucide-react'; // Example icons
 const educationHistory = [
   {
     icon: <GraduationCap className="h-8 w-8 text-primary" />,
-    degree: "Master of Science in Computer Science",
-    institution: "Stanford University",
-    date: "2018 - 2020",
-    description: "Specialized in Artificial Intelligence and Machine Learning. Thesis on Natural Language Processing.",
-    imageHint: "university campus stanford"
-  },
-  {
-    icon: <School className="h-8 w-8 text-primary" />,
-    degree: "Bachelor of Engineering in Information Technology",
-    institution: "Anna University",
-    date: "2014 - 2018",
-    description: "Focus on software development, database management, and web technologies. Graduated with Honors.",
+    degree: "Bachelor of Engineering in Computer Science",
+    institution: "ACE Engineering College",
+    date: "2021 - 2025",
+    description: "Specialized in Data Science",
     imageHint: "university campus generic"
   },
   {
-    icon: <BookOpen className="h-8 w-8 text-primary" />,
-    degree: "Advanced Full Stack Web Development Bootcamp",
-    institution: "Online Coding Academy",
-    date: "2021",
-    description: "Intensive program covering modern frontend and backend technologies including React, Node.js, and cloud deployment.",
-    imageHint: "online course certificate"
+    icon: <School className="h-8 w-8 text-primary" />,
+    degree: "Telangana State Board of Intermediate Education",
+    institution: "Sri Medha V Junior College",
+    date: "2019 - 2021",
+    description: "MPC - (Mathematics, Physcis, Chemistry ) ",
+    
+    imageHint: "Intermediate"
+  },
+  {
+    icon: <School className="h-8 w-8 text-primary" />,
+    degree: "Board of Secondary Education, Telangana State",
+    institution: "Fr. Bendel E.M High School",
+    date: "2019",
+    description: "10th",
+    imageHint: "SSC"
   }
 ];
 

@@ -6,31 +6,31 @@ import { Badge } from '@/components/ui/badge';
 
 const projects = [
   {
-    title: "AI-Powered Analytics Dashboard",
-    description: "A dynamic dashboard providing real-time data analytics and visualizations, leveraging AI for predictive insights.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "data analytics dashboard",
-    tags: ["Next.js", "Python", "AWS", "AI/ML"],
+    title: "Yield Forecast: Weather & Pesticides",
+    description: "This project forecasts crop yields using meteorological and pesticide data with machine learning models like Random Forest and XGBoost. It supports data-driven agricultural planning.",
+    image: "/home/user/studio/public/project_image/crop.jpg",
+    imageHint: "Predictive Analysis",
+    tags: ["Python","React.js", "FastAPI", "AI/ML"],
     liveLink: "#",
-    repoLink: "#",
+    repoLink: "https://github.com/Mosespushpa/crop_yield_predictor",
   },
   {
-    title: "Scalable E-commerce Platform",
-    description: "A robust e-commerce solution with features like product management, user authentication, and payment gateway integration.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "e-commerce online store",
-    tags: ["React", "Node.js", "GCP", "Microservices"],
+    title: "Feature Specific Sentiment Analysis",
+    description: "Developed a sentiment analysis model using NLP to classify iPhone reviews by features, with results visualized through an interactive dashboard for better insights.",
+    image: "/home/user/studio/public/project_image/sentiment.jpg",
+    imageHint: "Sentiment Analysis",
+    tags: ["Python","NLP", "Jupyter Notebook","Sentiment Analysis"],
     liveLink: "#",
-    repoLink: "#",
+    repoLink: "https://github.com/Mosespushpa/Sentiment-Analysis-of-product-reviews",
   },
   {
-    title: "DevOps Automation Pipeline",
-    description: "CI/CD pipeline for automated building, testing, and deployment of applications, significantly improving development velocity.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "devops pipeline code",
-    tags: ["Terraform", "Kubernetes", "Jenkins", "Docker"],
-    liveLink: "#",
-    repoLink: "#",
+    title: "MTY SHOP-WHEELS",
+    description: "Developed a service-based website showcasing vehicle services and sales, featuring interactive sections like Services, Gallery, Sales, and team profiles to enhance user engagement.",
+    image: "/home/user/studio/public/project_image/mty.jpg",
+    imageHint: "A Service Network",
+    tags: ["Frontend", "HTML", "CSS"],
+    liveLink: "https://mosespushpa.github.io/mty/",
+    repoLink: "https://github.com/Mosespushpa/mty",
   },
 ];
 
@@ -80,7 +80,7 @@ export function ProjectsSection() {
         </div>
         <div className="text-center mt-12">
           <Button size="lg" variant="link" asChild>
-            <a href="https://github.com/mosesC29" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Mosespushpa" target="_blank" rel="noopener noreferrer">
               View More on GitHub <ArrowRight className="ml-2 h-5 w-5" />
             </a>
           </Button>
