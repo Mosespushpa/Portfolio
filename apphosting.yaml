@@ -5,12 +5,14 @@ runConfig:
   # Increase this value if you'd like to automatically spin up
   # more instances in response to increased traffic.
   maxInstances: 1
-  environmentVariables:
-    SENDGRID_API_KEY: "YOUR_ACTUAL_SENDGRID_API_KEY_HERE" # !!! REPLACE THIS WITH YOUR REAL KEY !!!
+  # Environment variables set here are NOT recommended for secrets like API keys.
+  # Use Google Cloud Secret Manager for sensitive data.
+  # The example SENDGRID_API_KEY below was for illustration and should be removed if using Secret Manager for it.
+  # environmentVariables:
+  #   SENDGRID_API_KEY: "THIS_SHOULD_BE_HANDLED_BY_SECRET_MANAGER" 
 
-# For better security, especially for production, consider using Google Cloud Secret Manager:
+# For better security, especially for production, use Google Cloud Secret Manager:
 # https://firebase.google.com/docs/app-hosting/configure#secret-manager
-# Example using Secret Manager (replace YOUR_PROJECT_ID and your-secret-name):
-# secrets:
-#   - name: SENDGRID_API_KEY
-#     secretVersion: projects/YOUR_PROJECT_ID/secrets/your-secret-name/versions/latest
+secrets:
+  - name: SENDGRID_API_KEY # This is how your app will access it: process.env.SENDGRID_API_KEY
+    secretVersion: projects/YOUR_PROJECT_ID/secrets/YOUR_SECRET_NAME/versions/latest # <<< IMPORTANT: Replace YOUR_PROJECT_ID and YOUR_SECRET_NAME
