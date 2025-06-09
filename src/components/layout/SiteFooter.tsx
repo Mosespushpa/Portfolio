@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 
 export function SiteFooter() {
   const currentYear = new Date().getFullYear();
-  const email = "moses.chinnappan.work@gmail.com"; // Replace with actual email if different
+  const email = "moses.chinnappan.work@gmail.com"; 
   const linkedinUrl = "https://www.linkedin.com/in/moses-chinnappan-b96640219";
   const githubUrl = "https://github.com/mosesC29";
 
@@ -23,20 +23,26 @@ export function SiteFooter() {
         <div className="flex flex-col items-center md:items-end gap-2">
           <div className="flex space-x-3">
             <a href={`mailto:${email}`} aria-label="Email Moses Chinnappan">
-              <Button variant="ghost" size="icon"><Mail className="h-5 w-5 text-muted-foreground hover:text-primary" /></Button>
+              <Button variant="ghost" size="icon" className="transform transition-transform duration-200 hover:scale-125">
+                <Mail className="h-5 w-5 text-muted-foreground hover:text-primary" />
+              </Button>
             </a>
             <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="Moses Chinnappan's LinkedIn Profile">
-              <Button variant="ghost" size="icon"><Linkedin className="h-5 w-5 text-muted-foreground hover:text-primary" /></Button>
+              <Button variant="ghost" size="icon" className="transform transition-transform duration-200 hover:scale-125">
+                <Linkedin className="h-5 w-5 text-muted-foreground hover:text-primary" />
+              </Button>
             </a>
             <a href={githubUrl} target="_blank" rel="noopener noreferrer" aria-label="Moses Chinnappan's GitHub Profile">
-              <Button variant="ghost" size="icon"><Github className="h-5 w-5 text-muted-foreground hover:text-primary" /></Button>
+              <Button variant="ghost" size="icon" className="transform transition-transform duration-200 hover:scale-125">
+                <Github className="h-5 w-5 text-muted-foreground hover:text-primary" />
+              </Button>
             </a>
           </div>
           <a 
             href={linkedinUrl} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="text-sm text-primary hover:underline"
+            className="text-sm text-primary hover:underline transform transition-transform duration-200 hover:scale-105"
           >
             Follow me on LinkedIn
           </a>

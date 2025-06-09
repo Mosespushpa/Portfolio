@@ -10,14 +10,14 @@ const achievements = [
     issuer: "Cisco Networking Academy",
     date: "2023",
     description: "Proficient in Python programming with expertise in variables, data structures, algorithms, OOP, and best practices. Skilled in working with modules, files, and advanced Python features like generators and closures.",
-    certificateUrl: "https://www.credly.com/badges/3f48b538-f1bb-4188-9b68-0e9a22f013f4/public_url", // Replace with actual URL
+    certificateUrl: "https://www.credly.com/badges/3f48b538-f1bb-4188-9b68-0e9a22f013f4/public_url",
   },{
     icon: <Zap className="h-8 w-8 text-primary" />,
     title: "Cybersecurity Essentials",
     issuer: "Cisco Networking Academy",
     date: "2024",
     description: "Completed Cisco Networking Academy’s Cybersecurity Essentials course, gaining knowledge in cyber threats, data protection principles, and network defense strategies. Learned to apply technologies, processes, and legal frameworks to safeguard systems and information.",
-    certificateUrl: "https://www.credly.com/badges/c528ef0b-a674-4f1f-9822-83c21844cde0/public_url", // Replace with actual URL
+    certificateUrl: "https://www.credly.com/badges/c528ef0b-a674-4f1f-9822-83c21844cde0/public_url",
   },
   {
     icon: <Star className="h-8 w-8 text-primary" />,
@@ -46,7 +46,7 @@ export function AchievementsSection() {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {achievements.map((achievement, index) => (
-          <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          <Card key={index} className="shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105 flex flex-col">
             <CardHeader className="flex flex-row items-start gap-4 space-y-0">
               <div className="p-2 bg-primary/10 rounded-full">
                 {achievement.icon}
@@ -61,7 +61,7 @@ export function AchievementsSection() {
             </CardContent>
             {achievement.certificateUrl && achievement.certificateUrl !== "#" && (
               <CardFooter>
-                <Button variant="outline" size="sm" asChild>
+                <Button variant="outline" size="sm" asChild className="hover:scale-105 transform transition-transform duration-200">
                   <a href={achievement.certificateUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
                     <FileText className="mr-2 h-4 w-4" />
                     View Certificate

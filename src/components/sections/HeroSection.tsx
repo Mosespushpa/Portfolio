@@ -37,16 +37,16 @@ export function HeroSection() {
           </p>
           <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-8">
             {skills.slice(0, 5).map(skill => ( 
-              <Badge key={skill} variant="secondary" className="text-sm px-3 py-1">{skill}</Badge>
+              <Badge key={skill} variant="secondary" className="text-sm px-3 py-1 transform transition-transform duration-200 hover:scale-110 hover:shadow-md">{skill}</Badge>
             ))}
           </div>
           <div className="flex space-x-4 mb-8">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="transform transition-transform duration-200 hover:scale-105 hover:shadow-lg">
               <a href="#contact" className="flex items-center">
                 Get in Touch <Mail className="ml-2 h-5 w-5" />
               </a>
             </Button>
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="outline" size="lg" asChild className="transform transition-transform duration-200 hover:scale-105 hover:shadow-lg">
               <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center"> 
                 Download CV <Download className="ml-2 h-5 w-5" />
               </a>
@@ -54,13 +54,13 @@ export function HeroSection() {
           </div>
           <div className="flex space-x-4">
             <a href="https://www.linkedin.com/in/moses-chinnappan-b96640219" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-              <Button variant="ghost" size="icon"><Linkedin className="h-6 w-6 text-muted-foreground hover:text-primary" /></Button>
+              <Button variant="ghost" size="icon" className="transform transition-transform duration-200 hover:scale-125"><Linkedin className="h-6 w-6 text-muted-foreground hover:text-primary" /></Button>
             </a>
             <a href="https://github.com/Mosespushpa" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
-              <Button variant="ghost" size="icon"><Github className="h-6 w-6 text-muted-foreground hover:text-primary" /></Button>
+              <Button variant="ghost" size="icon" className="transform transition-transform duration-200 hover:scale-125"><Github className="h-6 w-6 text-muted-foreground hover:text-primary" /></Button>
             </a>
             <a href="https://leetcode.com/u/Moses_Chinnappan/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode Profile">
-              <Button variant="ghost" size="icon"><LeetCodeIcon className="h-6 w-6 text-muted-foreground hover:text-primary" /></Button>
+              <Button variant="ghost" size="icon" className="transform transition-transform duration-200 hover:scale-125"><LeetCodeIcon className="h-6 w-6 text-muted-foreground hover:text-primary" /></Button>
             </a>
           </div>
         </div>

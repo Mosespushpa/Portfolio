@@ -9,7 +9,7 @@ const educationHistory = [
     institution: "ACE Engineering College",
     date: "2021 - 2025",
     description: "Specialized in Data Science.",
-    grade: "CGPA: 8.7/10 (Until 3rd Year)", // Example, replace with actual
+    grade: "CGPA: 8.7/10 (Until 3rd Year)",
     imageHint: "university campus generic"
   },
   {
@@ -18,7 +18,7 @@ const educationHistory = [
     institution: "Sri Medha V Junior College",
     date: "2019 - 2021",
     description: "MPC - (Mathematics, Physics, Chemistry).",
-    grade: "Percentage: 96%", // Example, replace with actual
+    grade: "Percentage: 96%",
     imageHint: "Intermediate college building"
   },
   {
@@ -27,7 +27,7 @@ const educationHistory = [
     institution: "Fr. Bendel E.M High School",
     date: "2019",
     description: "Secondary School Certificate (SSC).",
-    grade: "GPA: 9.7/10", // Example, replace with actual
+    grade: "GPA: 9.7/10",
     imageHint: "school building classroom"
   }
 ];
@@ -42,7 +42,7 @@ export function EducationSection() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {educationHistory.map((edu, index) => (
-            <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+            <Card key={index} className="shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105 flex flex-col">
                <CardHeader className="flex flex-row items-start gap-4 space-y-0">
                 <div className="p-2 bg-primary/10 rounded-full">
                   {edu.icon}

@@ -49,7 +49,7 @@ export function SkillsSection() {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {skillCategories.map((category, index) => (
-          <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          <Card key={index} className="shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105 flex flex-col">
             <CardHeader>
               <div className="flex items-center space-x-3 mb-2">
                 {category.icon}

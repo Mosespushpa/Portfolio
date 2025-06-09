@@ -3,14 +3,13 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/componen
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Quote, Linkedin } from 'lucide-react';
-import Image from 'next/image'; // Import next/image if not already used, but AvatarImage handles it.
 
 const testimonials = [
   {
     name: "Tuge Venkatesam",
     title: "Project Manager, Tech Solutions Inc.",
     avatarFallbackText: "TV",
-    profilePhotoUrl: "/testimonial_images/tuge_venkatesam.jpg", // UPDATE THIS PATH
+    profilePhotoUrl: "/testimonial_images/tuge_venkatesam.jpg", 
     imageHint: "Tuge Venkatesam professional headshot",
     quote: "Moses is a highly skilled engineer who consistently delivers quality work. His expertise in cloud technologies was invaluable to our project's success. He's a true asset to any team.",
     linkedinUrl: "https://www.linkedin.com/in/janedoe-example/", // Replace with actual LinkedIn URL
@@ -19,7 +18,7 @@ const testimonials = [
     name: "John Smith",
     title: "Lead Developer, Innovate Hub",
     avatarFallbackText: "JS",
-    profilePhotoUrl: "/testimonial_images/john_smith.jpg", // UPDATE THIS PATH
+    profilePhotoUrl: "/testimonial_images/john_smith.jpg",
     imageHint: "John Smith professional headshot",
     quote: "Working with Moses was a pleasure. He's a great communicator, a proactive problem-solver, and his technical abilities are top-notch. Highly recommend!",
     linkedinUrl: "https://www.linkedin.com/in/johnsmith-example/", // Replace with actual LinkedIn URL
@@ -28,7 +27,7 @@ const testimonials = [
     name: "Alice Brown",
     title: "CEO, Startup Next",
     avatarFallbackText: "AB",
-    profilePhotoUrl: "/testimonial_images/alice_brown.jpg", // UPDATE THIS PATH
+    profilePhotoUrl: "/testimonial_images/alice_brown.jpg",
     imageHint: "Alice Brown professional headshot",
     quote: "Moses quickly understood our complex requirements and delivered an exceptional product. His dedication and innovative thinking were key to our launch.",
     linkedinUrl: "https://www.linkedin.com/in/alicebrown-example/", // Replace with actual LinkedIn URL
@@ -45,7 +44,7 @@ export function TestimonialsSection() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+            <Card key={index} className="shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105 flex flex-col">
               <CardHeader className="pb-4">
                 <div className="flex items-center space-x-4">
                   <Avatar className="h-12 w-12">
@@ -68,9 +67,9 @@ export function TestimonialsSection() {
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
               </CardContent>
-              {testimonial.linkedinUrl && testimonial.linkedinUrl !== "https://www.linkedin.com/in/placeholder/" && (
+              {testimonial.linkedinUrl && testimonial.linkedinUrl !== "https://www.linkedin.com/in/placeholder/" && ( // Updated this condition slightly for clarity
                  <CardFooter>
-                    <Button variant="ghost" size="sm" asChild>
+                    <Button variant="ghost" size="sm" asChild className="hover:scale-105 transform transition-transform duration-200">
                       <a href={testimonial.linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary flex items-center">
                         <Linkedin className="mr-2 h-4 w-4" /> View LinkedIn Profile
                       </a>
