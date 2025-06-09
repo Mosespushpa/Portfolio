@@ -1,33 +1,35 @@
+
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Quote, Linkedin } from 'lucide-react';
+import Image from 'next/image'; // Import next/image if not already used, but AvatarImage handles it.
 
 const testimonials = [
   {
-    name: "Jane Doe",
+    name: "Tuge Venkatesam",
     title: "Project Manager, Tech Solutions Inc.",
-    avatar: "JD",
-    avatarImage: "https://placehold.co/100x100.png?text=JD", // Replace with actual image URL
-    imageHint: "person avatar professional",
+    avatarFallbackText: "TV",
+    profilePhotoUrl: "/testimonial_images/tuge_venkatesam.jpg", // UPDATE THIS PATH
+    imageHint: "Tuge Venkatesam professional headshot",
     quote: "Moses is a highly skilled engineer who consistently delivers quality work. His expertise in cloud technologies was invaluable to our project's success. He's a true asset to any team.",
     linkedinUrl: "https://www.linkedin.com/in/janedoe-example/", // Replace with actual LinkedIn URL
   },
   {
     name: "John Smith",
     title: "Lead Developer, Innovate Hub",
-    avatar: "JS",
-    avatarImage: "https://placehold.co/100x100.png?text=JS", // Replace with actual image URL
-    imageHint: "person avatar professional",
+    avatarFallbackText: "JS",
+    profilePhotoUrl: "/testimonial_images/john_smith.jpg", // UPDATE THIS PATH
+    imageHint: "John Smith professional headshot",
     quote: "Working with Moses was a pleasure. He's a great communicator, a proactive problem-solver, and his technical abilities are top-notch. Highly recommend!",
     linkedinUrl: "https://www.linkedin.com/in/johnsmith-example/", // Replace with actual LinkedIn URL
   },
   {
     name: "Alice Brown",
     title: "CEO, Startup Next",
-    avatar: "AB",
-    avatarImage: "https://placehold.co/100x100.png?text=AB", // Replace with actual image URL
-    imageHint: "person avatar professional",
+    avatarFallbackText: "AB",
+    profilePhotoUrl: "/testimonial_images/alice_brown.jpg", // UPDATE THIS PATH
+    imageHint: "Alice Brown professional headshot",
     quote: "Moses quickly understood our complex requirements and delivered an exceptional product. His dedication and innovative thinking were key to our launch.",
     linkedinUrl: "https://www.linkedin.com/in/alicebrown-example/", // Replace with actual LinkedIn URL
   },
@@ -47,8 +49,12 @@ export function TestimonialsSection() {
               <CardHeader className="pb-4">
                 <div className="flex items-center space-x-4">
                   <Avatar className="h-12 w-12">
-                    <AvatarImage src={testimonial.avatarImage} alt={testimonial.name} data-ai-hint={testimonial.imageHint} />
-                    <AvatarFallback>{testimonial.avatar}</AvatarFallback>
+                    <AvatarImage 
+                      src={testimonial.profilePhotoUrl} 
+                      alt={testimonial.name} 
+                      data-ai-hint={testimonial.imageHint} 
+                    />
+                    <AvatarFallback>{testimonial.avatarFallbackText}</AvatarFallback>
                   </Avatar>
                   <div>
                     <CardTitle className="text-lg">{testimonial.name}</CardTitle>
