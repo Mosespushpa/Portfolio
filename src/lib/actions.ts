@@ -14,41 +14,52 @@ interface ActionResult {
   message?: string;
 }
 
-// Placeholder for actual email sending logic (e.g., using SendGrid)
 export async function sendContactEmail(data: ContactFormData): Promise<ActionResult> {
   console.log('Received contact form data:', data);
 
+  const myEmail = process.env.MY_EMAIL_ADDRESS || 'moses21games@gmail.com'; // Your recipient email
+  const verifiedSenderEmail = process.env.VERIFIED_SENDER_EMAIL || 'noreply@yourdomain.com'; // Must be a verified sender in SendGrid
+
   if (!process.env.SENDGRID_API_KEY) {
     console.error('SENDGRID_API_KEY is not set. Email will not be sent.');
-    return { success: false, message: 'Server configuration error: Email service is not set up.' };
+    // For security, don't expose this specific error message to the client in production.
+    // However, for development/debugging, it's useful to know.
+    // In a real app, you might return a more generic error.
+    return { success: false, message: 'Server configuration error. Please contact support.' };
   }
 
-  // Simulate API call / email sending
-  // await new Promise(resolve => setTimeout(resolve, 1500));
-
-  // Simulate success
   if (!data.email || !data.name || !data.message) {
-    return { success: false, message: 'Invalid data provided. (Simulated)' };
+    return { success: false, message: 'Invalid data provided. All fields are required.' };
   }
 
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
   const msg = {
-    to: 'moses21games@gmail.com', // Change to your recipient
-    from: 'noreply@yourdomain.com', // Change to your verified sender on SendGrid
+    to: myEmail,
+    from: verifiedSenderEmail, // Use the verified sender email address
+    replyTo: data.email, // So you can reply directly to the user
     subject: `New Contact Form Submission from ${data.name}`,
-    text: `Name: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`,
-    html: `<p><strong>Name:</strong> ${data.name}</p><p><strong>Email:</strong> ${data.email}</p><p><strong>Message:</strong> ${data.message}</p>`,
+    text: `You have a new message from your portfolio contact form:\n\nName: ${data.name}\nEmail: ${data.email}\nMessage: ${data.message}`,
+    html: `
+      <p>You have a new message from your portfolio contact form:</p>
+      <p><strong>Name:</strong> ${data.name}</p>
+      <p><strong>Email:</strong> <a href="mailto:${data.email}">${data.email}</a></p>
+      <p><strong>Message:</strong></p>
+      <p>${data.message.replace(/\n/g, '<br>')}</p>
+    `,
   };
+
   try {
     await sgMail.send(msg);
+    console.log('Email sent successfully');
     return { success: true, message: 'Your message has been sent successfully!' };
-  } catch (error) {
-    console.error('SendGrid error:', error);
-    // It's good to avoid exposing detailed error structures to the client.
-    // Check if error has a response and body for more specific SendGrid errors.
+  } catch (error: any) {
+    console.error('Error sending email with SendGrid:', error);
+    // Log the detailed error on the server
     if (error.response) {
-      console.error(error.response.body)
+      console.error('SendGrid error response body:', error.response.body);
     }
-    return { success: false, message: 'Failed to send message due to a server error.' };
+    // Return a generic error message to the client
+    return { success: false, message: 'Failed to send message due to a server error. Please try again later.' };
   }
 }

@@ -1,3 +1,4 @@
+
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -16,7 +17,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { sendContactEmail } from '@/lib/actions'; // Placeholder server action
+import { sendContactEmail } from '@/lib/actions';
 import { Loader2, Send } from 'lucide-react';
 import { useState } from 'react';
 
@@ -44,11 +45,7 @@ export function ContactFormSection() {
   async function onSubmit(values: ContactFormValues) {
     setIsSubmitting(true);
     try {
-      // const result = await sendContactEmail(values); // Server action
-      // Simulate server action
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      const result = { success: true, message: "Your message has been sent successfully!" };
-
+      const result = await sendContactEmail(values); // Call the actual server action
 
       if (result.success) {
         toast({
@@ -64,6 +61,7 @@ export function ContactFormSection() {
         });
       }
     } catch (error) {
+      console.error('Contact form submission error:', error);
       toast({
         title: 'Error',
         description: 'An unexpected error occurred. Please try again.',
