@@ -12,4 +12,4 @@ secrets:
   - name: SENDGRID_API_KEY # This is how your app will access it: process.env.SENDGRID_API_KEY
     # Using the numeric Project ID from your Secret Manager screenshot.
     # Ensure 'sendgrid-api-key' is the EXACT name you gave your secret.
-    secretVersion: projects/553208889393/secrets/sendgrid-api-key/versions/latest
+    secretVersion: projects/553208889393/secrets/sendgrid-api-key/versions/1
