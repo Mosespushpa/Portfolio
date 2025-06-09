@@ -59,7 +59,7 @@ export function HeroSection() {
             <a href="https://github.com/Mosespushpa" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
               <Button variant="ghost" size="icon"><Github className="h-6 w-6 text-muted-foreground hover:text-primary" /></Button>
             </a>
-            <a href="https://leetcode.com/u/Moses_Chinnappan/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode Profile"> {/* Replace with your actual LeetCode URL */}
+            <a href="https://leetcode.com/u/Moses_Chinnappan/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode Profile">
               <Button variant="ghost" size="icon"><LeetCodeIcon className="h-6 w-6 text-muted-foreground hover:text-primary" /></Button>
             </a>
           </div>
