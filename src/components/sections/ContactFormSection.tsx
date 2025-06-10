@@ -1,62 +1,80 @@
 
 'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import * as z from 'zod';
+import { useState, type FormEvent } from 'react';
 import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { sendContactEmail } from '@/lib/actions';
 import { Loader2, Send } from 'lucide-react';
-import { useState } from 'react';
+import { Label } from '@/components/ui/label';
 
-const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }).max(500, { message: "Message cannot exceed 500 characters." }),
-});
-
-type ContactFormValues = z.infer<typeof formSchema>;
+// IMPORTANT: Replace this with your own Formspree endpoint URL
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_FORM_ID';
 
 export function ContactFormSection() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
-  const form = useForm<ContactFormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      message: '',
-    },
-  });
-
-  async function onSubmit(values: ContactFormValues) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     setIsSubmitting(true);
-    try {
-      const result = await sendContactEmail(values); // Call the actual server action
 
-      if (result.success) {
-        toast({
-          title: 'Message Sent!',
-          description: result.message,
-        });
-        form.reset();
+    if (FORMSPREE_ENDPOINT === 'https://formspree.io/f/YOUR_FORMSPREE_FORM_ID') {
+      toast({
+        title: 'Configuration Error',
+        description: 'Please replace YOUR_FORMSPREE_FORM_ID in ContactFormSection.tsx with your actual Formspree form ID.',
+        variant: 'destructive',
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('message', message);
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        if (result.ok) {
+          toast({
+            title: 'Message Sent!',
+            description: 'Your message has been sent successfully. I will get back to you soon.',
+          });
+          setName('');
+          setEmail('');
+          setMessage('');
+        } else {
+          // Formspree returned an error (e.g., validation error)
+          let errorMessage = 'Failed to send message.';
+          if (result.errors && result.errors.length > 0) {
+            errorMessage = result.errors.map((err: any) => err.message || String(err.field).replace("_", " ")).join(', ');
+          }
+          toast({
+            title: 'Submission Error',
+            description: errorMessage,
+            variant: 'destructive',
+          });
+        }
       } else {
+        // Network error or server error from Formspree
         toast({
           title: 'Error',
-          description: result.message || 'Failed to send message. Please try again.',
+          description: 'Failed to send message due to a network or server issue. Please try again.',
           variant: 'destructive',
         });
       }
@@ -83,61 +101,57 @@ export function ContactFormSection() {
           <CardTitle>Contact Me</CardTitle>
           <CardDescription>I&apos;ll get back to you as soon as possible.</CardDescription>
         </CardHeader>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)}>
-            <CardContent className="space-y-6">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Full Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Your Name" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
+        <form onSubmit={handleSubmit}>
+          <CardContent className="space-y-6">
+            <div>
+              <Label htmlFor="name">Full Name</Label>
+              <Input
+                id="name"
+                name="name" // Formspree uses the 'name' attribute
+                type="text"
+                placeholder="Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
               />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email Address</FormLabel>
-                    <FormControl>
-                      <Input type="email" placeholder="your.email@example.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
+            </div>
+            <div>
+              <Label htmlFor="email">Email Address</Label>
+              <Input
+                id="email"
+                name="email" // Formspree uses the 'name' attribute
+                type="email"
+                placeholder="your.email@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Message</FormLabel>
-                    <FormControl>
-                      <Textarea placeholder="Your message..." {...field} rows={6} className="min-h-[150px]" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
+            </div>
+            <div>
+              <Label htmlFor="message">Message</Label>
+              <Textarea
+                id="message"
+                name="message" // Formspree uses the 'name' attribute
+                placeholder="Your message..."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+                rows={6}
+                className="min-h-[150px]"
               />
-            </CardContent>
-            <CardFooter>
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? (
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  <Send className="mr-2 h-4 w-4" />
-                )}
-                Send Message
-              </Button>
-            </CardFooter>
-          </form>
-        </Form>
+            </div>
+          </CardContent>
+          <CardFooter>
+            <Button type="submit" className="w-full" disabled={isSubmitting}>
+              {isSubmitting ? (
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              ) : (
+                <Send className="mr-2 h-4 w-4" />
+              )}
+              Send Message
+            </Button>
+          </CardFooter>
+        </form>
       </Card>
     </section>
   );

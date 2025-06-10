@@ -7,16 +7,13 @@ runConfig:
   # more instances in response to increased traffic.
   maxInstances: 1
 
-# === IMPORTANT: TEMPORARY DEBUGGING STEP ===
-# Directly setting the API key here is NOT secure for public repositories.
-# This is for debugging only. If this works, we must revert to Secret Manager.
-environmentVariables:
-  SENDGRID_API_KEY: "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" # <<< REPLACE THIS WITH YOUR REAL KEY
+# Environment variables and secrets are no longer needed for SendGrid
+# as we are switching to Formspree which is client-side submission.
+# If you have other environment variables, you can define them here:
+# environmentVariables:
+#   MY_OTHER_VARIABLE: "its_value"
 
-# For better security, especially for production, use Google Cloud Secret Manager:
-# https://firebase.google.com/docs/app-hosting/configure#secret-manager
+# Or using Secret Manager for sensitive values:
 # secrets:
-#   - name: SENDGRID_API_KEY # This is how your app will access it: process.env.SENDGRID_API_KEY
-#     # Using the numeric Project ID from your Secret Manager.
-#     # Ensure 'sendgrid-api-key' is the EXACT name you gave your secret.
-#     secretVersion: projects/553208889393/secrets/sendgrid-api-key/versions/1
+#   - name: MY_OTHER_SECRET
+#     secretVersion: projects/YOUR_PROJECT_ID/secrets/YOUR_SECRET_NAME/versions/YOUR_VERSION_NUMBER_OR_LATEST
