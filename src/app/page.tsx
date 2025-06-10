@@ -1,11 +1,12 @@
 
 import { HeroSection } from '@/components/sections/HeroSection';
+import { AboutMeSection } from '@/components/sections/AboutMeSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { SkillsSection } from '@/components/sections/SkillsSection';
-import { AchievementsSection } from '@/components/sections/AchievementsSection'; // New import
-import { EducationSection } from '@/components/sections/EducationSection'; // New import
+import { AchievementsSection } from '@/components/sections/AchievementsSection';
+import { EducationSection } from '@/components/sections/EducationSection';
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
-import { ContactFormSection } from '@/components/sections/ContactFormSection';
+import { ContactSection } from '@/components/sections/ContactFormSection'; // Corrected import path
 import { AnimatedSection } from '@/components/AnimatedSection';
 
 export default function PortfolioPage() {
@@ -13,6 +14,10 @@ export default function PortfolioPage() {
     <div className="flex flex-col">
       <AnimatedSection>
         <HeroSection />
+      </AnimatedSection>
+
+      <AnimatedSection delay={200}>
+        <AboutMeSection />
       </AnimatedSection>
       
       <AnimatedSection delay={200}>
@@ -24,11 +29,11 @@ export default function PortfolioPage() {
       </AnimatedSection>
 
       <AnimatedSection delay={200}>
-        <AchievementsSection /> {/* New section */}
+        <AchievementsSection />
       </AnimatedSection>
 
       <AnimatedSection delay={200}>
-        <EducationSection /> {/* New section */}
+        <EducationSection />
       </AnimatedSection>
 
       <AnimatedSection delay={200}>
@@ -36,7 +41,7 @@ export default function PortfolioPage() {
       </AnimatedSection>
 
       <AnimatedSection delay={200}>
-        <ContactFormSection />
+        <ContactSection />
       </AnimatedSection>
     </div>
   );

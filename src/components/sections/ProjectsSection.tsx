@@ -46,12 +46,13 @@ export function ProjectsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <Card key={index} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105">
-              <div className="relative h-48 w-full">
+              <div className="relative aspect-[16/9] w-full"> {/* Adjusted for a common aspect ratio, or use h-48 or h-52 etc. */}
                 <Image
                   src={project.image}
                   alt={project.title}
                   layout="fill"
-                  objectFit="cover"
+                  objectFit="cover" // This will cover the area, cropping if necessary. Use "contain" to see the whole image, which might leave letterboxes.
+                  className="transition-transform duration-500 group-hover:scale-105"
                   data-ai-hint={project.imageHint}
                 />
               </div>

@@ -5,10 +5,11 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Button } from '@/components/ui/button';
-import { Sparkles, Home, Lightbulb, Briefcase, Award, GraduationCap, Mail, Menu, X } from 'lucide-react';
+import { Sparkles, Home, UserCircle, Briefcase, Lightbulb, Award, GraduationCap, Mail, Menu, X } from 'lucide-react'; // Added UserCircle for About Me
 
 const navItems = [
   { href: '/#hero', label: 'Home', icon: <Home className="h-5 w-5" /> },
+  { href: '/#about-me', label: 'About Me', icon: <UserCircle className="h-5 w-5" /> }, // New "About Me" link
   { href: '/#projects', label: 'Projects', icon: <Briefcase className="h-5 w-5" /> },
   { href: '/#skills', label: 'Skills', icon: <Lightbulb className="h-5 w-5" /> },
   { href: '/#achievements', label: 'Achievements', icon: <Award className="h-5 w-5" /> },

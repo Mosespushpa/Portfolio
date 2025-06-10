@@ -7,13 +7,36 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Send } from 'lucide-react';
+import { Loader2, Send, Mail, Phone, MapPin, Linkedin, Github, FileText } from 'lucide-react'; // Added icons
 import { Label } from '@/components/ui/label';
 
-// IMPORTANT: Replace this with your own Formspree endpoint URL
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_FORM_ID';
+// Simple LeetCode SVG Icon Component (reused from HeroSection for consistency)
+const LeetCodeIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    fill="currentColor"
+    {...props}
+  >
+    <path d="M13.483 4.497l-2.4-1.483-7.566 4.666v7.42h2.048V9.917l5.518-3.399v10.8l-2.444-1.483-.99.611 3.434 2.113 3.434-2.113-.99-.611-2.444 1.483V6.199l5.518 3.399v6.583h2.048V9.083l-7.566-4.586z" />
+  </svg>
+);
 
-export function ContactFormSection() {
+// IMPORTANT: Replace this with your own Formspree endpoint URL
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mrbkpdlb'; // KEEP YOUR ACTUAL ENDPOINT
+
+const contactDetails = {
+  email: "moses.chinnappan.work@gmail.com",
+  phone: "On Request", // Or your actual phone number if you wish to display it
+  location: "Hyderabad, Telangana, India",
+  linkedin: "https://www.linkedin.com/in/moses-chinnappan-b96640219",
+  github: "https://github.com/Mosespushpa",
+  leetcode: "https://leetcode.com/u/moses_21/",
+};
+
+export function ContactSection() { // Renamed component
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [name, setName] = useState('');
@@ -27,7 +50,7 @@ export function ContactFormSection() {
     if (FORMSPREE_ENDPOINT === 'https://formspree.io/f/YOUR_FORMSPREE_FORM_ID') {
       toast({
         title: 'Configuration Error',
-        description: 'Please replace YOUR_FORMSPREE_FORM_ID in ContactFormSection.tsx with your actual Formspree form ID.',
+        description: 'Please replace YOUR_FORMSPREE_FORM_ID in ContactSection.tsx with your actual Formspree form ID.',
         variant: 'destructive',
       });
       setIsSubmitting(false);
@@ -59,7 +82,6 @@ export function ContactFormSection() {
           setEmail('');
           setMessage('');
         } else {
-          // Formspree returned an error (e.g., validation error)
           let errorMessage = 'Failed to send message.';
           if (result.errors && result.errors.length > 0) {
             errorMessage = result.errors.map((err: any) => err.message || String(err.field).replace("_", " ")).join(', ');
@@ -71,7 +93,6 @@ export function ContactFormSection() {
           });
         }
       } else {
-        // Network error or server error from Formspree
         toast({
           title: 'Error',
           description: 'Failed to send message due to a network or server issue. Please try again.',
@@ -94,65 +115,110 @@ export function ContactFormSection() {
     <section id="contact" className="container mx-auto">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Get In Touch</h2>
       <p className="text-lg text-muted-foreground text-center mb-12">
-        Have a question or want to work together? Fill out the form below.
+        I&apos;m open to opportunities and to discuss projects or collaborations. Let&apos;s connect!
       </p>
-      <Card className="max-w-xl mx-auto shadow-lg">
-        <CardHeader>
-          <CardTitle>Contact Me</CardTitle>
-          <CardDescription>I&apos;ll get back to you as soon as possible.</CardDescription>
-        </CardHeader>
-        <form onSubmit={handleSubmit}>
-          <CardContent className="space-y-6">
-            <div>
-              <Label htmlFor="name">Full Name</Label>
-              <Input
-                id="name"
-                name="name" // Formspree uses the 'name' attribute
-                type="text"
-                placeholder="Your Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <Label htmlFor="email">Email Address</Label>
-              <Input
-                id="email"
-                name="email" // Formspree uses the 'name' attribute
-                type="email"
-                placeholder="your.email@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <Label htmlFor="message">Message</Label>
-              <Textarea
-                id="message"
-                name="message" // Formspree uses the 'name' attribute
-                placeholder="Your message..."
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-                rows={6}
-                className="min-h-[150px]"
-              />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button type="submit" className="w-full" disabled={isSubmitting}>
-              {isSubmitting ? (
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              ) : (
-                <Send className="mr-2 h-4 w-4" />
-              )}
-              Send Message
-            </Button>
-          </CardFooter>
-        </form>
-      </Card>
+      
+      <div className="grid md:grid-cols-2 gap-12">
+        {/* Contact Details Section */}
+        <div className="space-y-8">
+          <Card className="shadow-lg h-full">
+            <CardHeader>
+              <CardTitle>Contact Me Directly</CardTitle>
+              <CardDescription>Feel free to reach out through these channels.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <a href={`mailto:${contactDetails.email}`} className="flex items-center space-x-3 group">
+                <Mail className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
+                <span className="text-muted-foreground group-hover:text-primary transition-colors">{contactDetails.email}</span>
+              </a>
+              <div className="flex items-center space-x-3">
+                <Phone className="h-6 w-6 text-primary" />
+                <span className="text-muted-foreground">{contactDetails.phone}</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <MapPin className="h-6 w-6 text-primary" />
+                <span className="text-muted-foreground">{contactDetails.location}</span>
+              </div>
+              
+              <div className="pt-4">
+                <h3 className="text-md font-semibold mb-3 text-foreground">Find me on:</h3>
+                <div className="flex space-x-4">
+                  <a href={contactDetails.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                    <Button variant="outline" size="icon" className="transform transition-transform duration-200 hover:scale-110 hover:shadow-md"><Linkedin className="h-5 w-5" /></Button>
+                  </a>
+                  <a href={contactDetails.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                    <Button variant="outline" size="icon" className="transform transition-transform duration-200 hover:scale-110 hover:shadow-md"><Github className="h-5 w-5" /></Button>
+                  </a>
+                  <a href={contactDetails.leetcode} target="_blank" rel="noopener noreferrer" aria-label="LeetCode Profile">
+                    <Button variant="outline" size="icon" className="transform transition-transform duration-200 hover:scale-110 hover:shadow-md"><LeetCodeIcon className="h-5 w-5" /></Button>
+                  </a>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Message Form Section */}
+        <div>
+          <Card className="shadow-lg h-full">
+            <CardHeader>
+              <CardTitle>Send Me a Message</CardTitle>
+              <CardDescription>I&apos;ll get back to you as soon as possible.</CardDescription>
+            </CardHeader>
+            <form onSubmit={handleSubmit}>
+              <CardContent className="space-y-6">
+                <div>
+                  <Label htmlFor="name">Full Name</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Your Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="email">Email Address</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="your.email@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    placeholder="Your message..."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
+                    rows={5} 
+                    className="min-h-[120px]"
+                  />
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  ) : (
+                    <Send className="mr-2 h-4 w-4" />
+                  )}
+                  Send Message
+                </Button>
+              </CardFooter>
+            </form>
+          </Card>
+        </div>
+      </div>
     </section>
   );
 }
