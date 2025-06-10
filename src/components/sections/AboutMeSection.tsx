@@ -27,10 +27,10 @@ export function AboutMeSection() {
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-lg blur-md opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
             <Image
-              src="/profile-moses.jpg" // Assuming the same profile image is used
+              src="/moses2.jpg" // Assuming the same profile image is used
               alt="Moses Chinnappan"
-              width={240} // Slightly smaller for this section
-              height={240}
+              width={280} // Increased image size
+              height={280} // Increased image size
               priority
               className="rounded-lg shadow-xl relative z-10 border-4 border-background"
               data-ai-hint="professional headshot"

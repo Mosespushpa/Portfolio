@@ -86,6 +86,9 @@
 }
 
 @layer base {
+  html {
+    @apply scroll-smooth;
+  }
   * {
     @apply border-border;
   }
@@ -103,7 +106,7 @@
   h2 { @apply text-3xl sm:text-4xl; }
   h3 { @apply text-2xl sm:text-3xl; }
   section {
-    @apply py-16 sm:py-20 md:py-24;
+    @apply py-12 sm:py-16 md:py-20; /* Reduced padding */
   }
 }
 
