@@ -6,7 +6,7 @@ runConfig:
   # more instances in response to increased traffic.
   maxInstances: 1
 
-# If you have other environment variables unrelated to SendGrid,
+# If you have other environment variables,
 # you can define them here:
 # environmentVariables:
 #   MY_OTHER_VARIABLE: "its_value"
