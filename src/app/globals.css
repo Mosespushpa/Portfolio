@@ -97,7 +97,7 @@
     font-family: var(--font-geist-sans), sans-serif;
     background: linear-gradient(-45deg, hsl(var(--background-wave-one)), hsl(var(--background-wave-two)), hsl(var(--background-wave-one)), hsl(var(--background-wave-two)));
     background-size: 400% 400%;
-    animation: waveAnimation 15s ease infinite;
+    animation: waveAnimation 5s ease infinite;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;

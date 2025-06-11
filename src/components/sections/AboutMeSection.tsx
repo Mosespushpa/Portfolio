@@ -29,8 +29,8 @@ export function AboutMeSection() {
             <Image
               src="/moses2.jpg" // Assuming the same profile image is used
               alt="Moses Chinnappan"
-              width={280} // Increased image size
-              height={280} // Increased image size
+              width={420} // Increased image size
+              height={420} // Increased image size
               priority
               className="rounded-lg shadow-xl relative z-10 border-4 border-background"
               data-ai-hint="professional headshot"

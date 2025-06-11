@@ -16,31 +16,31 @@ export default function PortfolioPage() {
         <HeroSection />
       </AnimatedSection>
 
-      <AnimatedSection delay={200}>
+      <AnimatedSection>
         <AboutMeSection />
       </AnimatedSection>
       
-      <AnimatedSection delay={200}>
+      <AnimatedSection>
         <ProjectsSection />
       </AnimatedSection>
 
-      <AnimatedSection delay={200}>
+      <AnimatedSection>
         <SkillsSection />
       </AnimatedSection>
 
-      <AnimatedSection delay={200}>
+      <AnimatedSection>
         <AchievementsSection />
       </AnimatedSection>
 
-      <AnimatedSection delay={200}>
+      <AnimatedSection>
         <EducationSection />
       </AnimatedSection>
 
-      <AnimatedSection delay={200}>
+      <AnimatedSection>
         <TestimonialsSection />
       </AnimatedSection>
 
-      <AnimatedSection delay={200}>
+      <AnimatedSection>
         <ContactSection />
       </AnimatedSection>
     </div>
