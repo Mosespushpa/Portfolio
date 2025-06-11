@@ -62,7 +62,7 @@ export function AboutMeSection() {
                   <li><strong>Specialization:</strong> {academicDetails.specialization}</li>
                   <li><strong>Institution:</strong> {academicDetails.institution}</li>
                   <li><strong>Expected Graduation:</strong> {academicDetails.duration.split(' - ')[1]}</li>
-                  <li><strong>Current CGPA:</strong> {academicDetails.cgpa}</li>
+                  <li><strong>Current CGPA:</strong> {academicDetails.gpa}</li>
                 </ul>
               </div>
               <p className="text-muted-foreground leading-relaxed">
