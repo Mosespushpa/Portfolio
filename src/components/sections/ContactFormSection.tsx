@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Send, Mail, Phone, MapPin, Linkedin, Github, FileText } from 'lucide-react'; // Added icons
+import { Loader2, Send, Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 
 // Simple LeetCode SVG Icon Component (reused from HeroSection for consistency)
@@ -24,8 +24,8 @@ const LeetCodeIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-// IMPORTANT: Replace this with your own Formspree endpoint URL
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mrbkpdlb'; // KEEP YOUR ACTUAL ENDPOINT
+// User's actual Formspree endpoint
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mrbkpdlb';
 
 const contactDetails = {
   email: "chinnappanmoses21@gmail.com",
@@ -47,15 +47,16 @@ export function ContactSection() { // Renamed component
     event.preventDefault();
     setIsSubmitting(true);
 
-    if (FORMSPREE_ENDPOINT === 'https://formspree.io/f/YOUR_FORMSPREE_FORM_ID') {
-      toast({
-        title: 'Configuration Error',
-        description: 'Please replace YOUR_FORMSPREE_FORM_ID in ContactSection.tsx with your actual Formspree form ID.',
-        variant: 'destructive',
-      });
-      setIsSubmitting(false);
-      return;
-    }
+    // This check is no longer needed as the actual endpoint is set.
+    // if (FORMSPREE_ENDPOINT === 'https://formspree.io/f/YOUR_FORMSPREE_FORM_ID') {
+    //   toast({
+    //     title: 'Configuration Error',
+    //     description: 'Please replace YOUR_FORMSPREE_FORM_ID in ContactSection.tsx with your actual Formspree form ID.',
+    //     variant: 'destructive',
+    //   });
+    //   setIsSubmitting(false);
+    //   return;
+    // }
 
     const formData = new FormData();
     formData.append('name', name);
