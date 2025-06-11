@@ -28,8 +28,8 @@ const LeetCodeIcon = (props: React.SVGProps<SVGSVGElement>) => (
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mrbkpdlb'; // KEEP YOUR ACTUAL ENDPOINT
 
 const contactDetails = {
-  email: "moses.chinnappan.work@gmail.com",
-  phone: "On Request", // Or your actual phone number if you wish to display it
+  email: "chinnappanmoses21@gmail.com",
+  phone: "+91 9247104605",
   location: "Hyderabad, Telangana, India",
   linkedin: "https://www.linkedin.com/in/moses-chinnappan-b96640219",
   github: "https://github.com/Mosespushpa",

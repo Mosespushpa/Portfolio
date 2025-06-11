@@ -34,7 +34,7 @@ export function SiteHeader() {
         <Link href="/" className="mr-4 flex items-center space-x-2 transform transition-transform duration-200 hover:scale-105" onClick={closeMobileMenu}>
           <Sparkles className="h-6 w-6 text-primary" />
           <span className="font-bold sm:inline-block">
-            Portfolio
+            MC
           </span>
         </Link>
         

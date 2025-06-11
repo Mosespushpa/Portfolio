@@ -9,7 +9,7 @@ const educationHistory = [
     institution: "ACE Engineering College",
     date: "2021 - 2025",
     description: "Specialized in Data Science.",
-    grade: "CGPA: 8.7/10 (Until 3rd Year)",
+    grade: "GPA: 8.2/10 (Until 3rd Year)",
     imageHint: "university campus generic"
   },
   {
@@ -18,7 +18,7 @@ const educationHistory = [
     institution: "Sri Medha V Junior College",
     date: "2019 - 2021",
     description: "MPC - (Mathematics, Physics, Chemistry).",
-    grade: "Percentage: 96%",
+    grade: "Marks: 874/1000",
     imageHint: "Intermediate college building"
   },
   {
@@ -27,7 +27,7 @@ const educationHistory = [
     institution: "Fr. Bendel E.M High School",
     date: "2019",
     description: "Secondary School Certificate (SSC).",
-    grade: "GPA: 9.7/10",
+    grade: "GPA: 8.7/10",
     imageHint: "school building classroom"
   }
 ];

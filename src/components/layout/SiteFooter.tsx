@@ -3,9 +3,9 @@ import { Button } from '@/components/ui/button';
 
 export function SiteFooter() {
   const currentYear = new Date().getFullYear();
-  const email = "moses.chinnappan.work@gmail.com"; 
+  const email = "chinnappanmoses21@gmail.com"; 
   const linkedinUrl = "https://www.linkedin.com/in/moses-chinnappan-b96640219";
-  const githubUrl = "https://github.com/mosesC29";
+  const githubUrl = "https://github.com/Mosespushpa";
 
 
   return (

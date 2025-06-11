@@ -9,8 +9,8 @@ import { SiteFooter } from '@/components/layout/SiteFooter';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'Persona Canvas - Moses Chinnappan',
-  description: 'Professional portfolio of Moses Chinnappan, Full Stack Engineer.',
+  title: 'Moses Chinnappan',
+  description: 'Portfolio of Moses Chinnappan.',
 };
 
 export default function RootLayout({

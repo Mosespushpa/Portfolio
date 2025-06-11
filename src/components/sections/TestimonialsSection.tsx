@@ -6,31 +6,31 @@ import { Quote, Linkedin } from 'lucide-react';
 
 const testimonials = [
   {
-    name: "Tuge Venkatesam",
-    title: "Project Manager, Tech Solutions Inc.",
-    avatarFallbackText: "TV",
+    name: "Venkatesham Tunge",
+    title: "Associate Intern @MentiBy, Flutter Developer, Front-end Developer, Meme Creator(Tech),10k+ on Insta..",
+    avatarFallbackText: "VT",
     // profilePhotoUrl: "/testimonial_images/tuge_venkatesam.jpg", 
     // imageHint: "Tuge Venkatesam professional headshot",
     quote: "Moses is a highly skilled engineer who consistently delivers quality work. His expertise in cloud technologies was invaluable to our project's success. He's a true asset to any team.",
-    linkedinUrl: "https://www.linkedin.com/in/janedoe-example/", // Replace with actual LinkedIn URL
+    linkedinUrl: "https://www.linkedin.com/in/venkateshamtunge?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BhJAXhG6bQ%2BSDsu7tSnxjfA%3D%3D"
   },
   {
-    name: "John Smith",
-    title: "Lead Developer, Innovate Hub",
-    avatarFallbackText: "JS",
+    name: "Lokesh Karthik Varma ",
+    title: "Java developer,Data Analyst,Communicator.",
+    avatarFallbackText: "LKV",
     // profilePhotoUrl: "/testimonial_images/john_smith.jpg",
     // imageHint: "John Smith professional headshot",
-    quote: "Working with Moses was a pleasure. He's a great communicator, a proactive problem-solver, and his technical abilities are top-notch. Highly recommend!",
-    linkedinUrl: "https://www.linkedin.com/in/johnsmith-example/", // Replace with actual LinkedIn URL
+    quote: "Moses is highly motivated and dedicated to his work. He eagerly takes on new challenges to solve real-world problems and is capable of clearly explaining Data Structures and Algorithms (DSA).",
+    linkedinUrl: "https://www.linkedin.com/in/lokeshkarthik2003?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B1EBvLEbgTPi2vV6nhc%2FWaw%3D%3D"
   },
   {
-    name: "Alice Brown",
-    title: "CEO, Startup Next",
-    avatarFallbackText: "AB",
+    name: "Srivathsa Tirumala",
+    title: "Aspiring Data Scientist, Passionate About Data-Driven Solutions, Skilled in Python, Machine Learning, and Big Data.",
+    avatarFallbackText: "ST",
     // profilePhotoUrl: "/testimonial_images/alice_brown.jpg",
     // imageHint: "Alice Brown professional headshot",
-    quote: "Moses quickly understood our complex requirements and delivered an exceptional product. His dedication and innovative thinking were key to our launch.",
-    linkedinUrl: "https://www.linkedin.com/in/alicebrown-example/", // Replace with actual LinkedIn URL
+    quote: "Moses Chinnappan is an IT professional skilled in software development, system administration, and Data Structures and Algorithms (DSA). He writes optimized code, solves complex problems, and builds scalable solutions, making him a valuable asset in tech-driven roles.",
+    linkedinUrl: "https://www.linkedin.com/in/srivathsa-tirumala?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BrEwmaEEvQw2dJZ5dl01%2FpQ%3D%3D"
   },
 ];
 
