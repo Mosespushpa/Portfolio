@@ -1,0 +1,90 @@
+
+'use client'; 
+
+import Link from 'next/link';
+import { useState } from 'react';
+import { ThemeToggle } from '@/components/ThemeToggle';
+import { Button } from '@/components/ui/button';
+import { Sparkles, Home, UserCircle, Briefcase, Lightbulb, Award, GraduationCap, Mail, Menu, X } from 'lucide-react'; // Added UserCircle for About Me
+
+const navItems = [
+  { href: '/#hero', label: 'Home', icon: <Home className="h-5 w-5" /> },
+  { href: '/#about-me', label: 'About Me', icon: <UserCircle className="h-5 w-5" /> }, // New "About Me" link
+  { href: '/#projects', label: 'Projects', icon: <Briefcase className="h-5 w-5" /> },
+  { href: '/#skills', label: 'Skills', icon: <Lightbulb className="h-5 w-5" /> },
+  { href: '/#achievements', label: 'Achievements', icon: <Award className="h-5 w-5" /> },
+  { href: '/#education', label: 'Education', icon: <GraduationCap className="h-5 w-5" /> },
+  { href: '/#contact', label: 'Contact', icon: <Mail className="h-5 w-5" /> },
+];
+
+export function SiteHeader() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-14 max-w-screen-2xl items-center">
+        <Link href="/" className="mr-4 flex items-center space-x-2 transform transition-transform duration-200 hover:scale-105" onClick={closeMobileMenu}>
+          <Sparkles className="h-6 w-6 text-primary" />
+          <span className="font-bold sm:inline-block">
+            MC
+          </span>
+        </Link>
+        
+        <nav className="hidden md:flex items-center justify-center space-x-1 mx-auto">
+          {navItems.map((item) => (
+            <Link key={item.label} href={item.href} legacyBehavior passHref>
+              <Button variant="ghost" className="text-sm font-medium text-foreground/70 hover:text-foreground px-3 py-2 transform transition-transform duration-200 hover:scale-105">
+                {item.label}
+              </Button>
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center space-x-2 ml-auto"> 
+          <ThemeToggle />
+
+          <div className="md:hidden">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={toggleMobileMenu}
+              aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+              className="transform transition-transform duration-200 hover:scale-110"
+            >
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-lg border-t border-border/40">
+          <div className="container py-4">
+            <nav className="flex flex-col space-y-3">
+              {navItems.map((item) => (
+                <Link key={`${item.label}-mobile`} href={item.href} legacyBehavior passHref>
+                  <a
+                    onClick={closeMobileMenu} 
+                    className="flex items-center gap-3 rounded-md px-3 py-2 text-base font-medium text-foreground hover:bg-accent hover:text-accent-foreground transform transition-transform duration-200 hover:scale-105 hover:shadow-md"
+                  >
+                    {item.icon}
+                    {item.label}
+                  </a>
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
