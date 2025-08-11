@@ -5,7 +5,7 @@ import { Github, Linkedin, Mail, Download } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 const skills = [
-  "Python", "Java","Machine Learning", "Cloud (AWS, GCP)", "Gen AI", "DevOps", 
+  "Python", "Java","Machine Learning", "Cloud GCP", "Gen AI", "DevOps", 
   "React", "SQL", "NoSQL"
 ];
 

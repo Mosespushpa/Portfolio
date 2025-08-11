@@ -21,7 +21,7 @@ const skillCategories = [
   {
     title: "Cloud",
     icon: <Cloud className="h-6 w-6 text-primary" />,
-    skills: ["AWS", "GCP"],
+    skills: ["GCP"],
   },
   {
     title: "Machine Leaning",
