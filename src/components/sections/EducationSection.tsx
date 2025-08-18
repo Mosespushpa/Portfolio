@@ -9,9 +9,7 @@ const educationHistory = [
     institution: "ACE Engineering College",
     date: "2021 - 2025",
     description: "Specialized in Data Science.",
-
-    grade: "GPA: 8.2/10 (Until 3rd Year)",
-
+    grade: "GPA: 8.27/10",
     imageHint: "university campus generic"
   },
   {
