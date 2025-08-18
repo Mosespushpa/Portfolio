@@ -10,7 +10,9 @@ export function AboutMeSection() {
     specialization: "Data Science",
     institution: "ACE Engineering College, Hyderabad",
     duration: "2021 - 2025 (Expected)",
-    gpa: "8.27/10 ",
+
+    gpa: "8.2/10 (Until 3rd Year)",
+
   };
 
   return (
