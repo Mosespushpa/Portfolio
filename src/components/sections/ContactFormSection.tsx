@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Send, Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
+import { Loader2, Send, Mail, MapPin, Linkedin, Github } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 
 // Simple LeetCode SVG Icon Component (reused from HeroSection for consistency)
@@ -29,7 +29,6 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mrbkpdlb';
 
 const contactDetails = {
   email: "chinnappanmoses21@gmail.com",
-  phone: "+91 9247104605",
   location: "Hyderabad, Telangana, India",
   linkedin: "https://www.linkedin.com/in/moses-chinnappan-b96640219",
   github: "https://github.com/Mosespushpa",
@@ -132,10 +131,6 @@ export function ContactSection() { // Renamed component
                 <Mail className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
                 <span className="text-muted-foreground group-hover:text-primary transition-colors">{contactDetails.email}</span>
               </a>
-              <div className="flex items-center space-x-3">
-                <Phone className="h-6 w-6 text-primary" />
-                <span className="text-muted-foreground">{contactDetails.phone}</span>
-              </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-6 w-6 text-primary" />
                 <span className="text-muted-foreground">{contactDetails.location}</span>
