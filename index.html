@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Portfolio</title>
+    <title>Moses' Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -42,7 +42,7 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title">
-                        Hi, I'm a <span class="highlight">Developer</span>
+                        Hi, I'm a <span class="highlight">Moses</span>
                     </h1>
                     <p class="hero-subtitle">
                         I create beautiful, functional web experiences that users love
@@ -54,13 +54,17 @@
                     <div class="social-icons">
                         <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
                         <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <!-- <a href="#" title="Twitter"><i class="fab fa-map-marker-alt"></i></a> -->
                         <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 <div class="hero-image">
                     <div class="image-wrapper">
-                        <img src="images/Screenshot 2026-06-13 154904.png" alt="Profile" class="profile-image">
+                        <video id="player" controls autoplay muted width="640">
+                            <source src="resources/videos/1.mp4" type="video/mp4">
+                         <!-- "resources/vidoes/1.mp4" type="video/mp4"> -->
+                        </video>
+                        <!-- <video src="resources/videos/Intro.mp4" alt="Profile" class="profile-image" controls="true"> -->
                     </div>
                 </div>
             </div>
@@ -501,7 +505,34 @@
             </div>
         </div>
     </footer>
+    
 
+
+<script>
+const playlist = [
+    { src: "resources/videos/1.mp4", speed: 1.0 }, // normal speed
+    { src: "resources/videos/2.mp4", speed: 0.5 }  // 2x speed
+];
+
+let index = 0;
+const player = document.getElementById("player");
+
+function playVideo(i) {
+    player.src = playlist[i].src;
+
+    player.onloadedmetadata = () => {
+        player.playbackRate = playlist[i].speed;
+        player.play();
+    };
+}
+
+playVideo(index);
+
+player.addEventListener("ended", () => {
+    index = (index + 1) % playlist.length; // loop playlist
+    playVideo(index);
+});
+</script>
     <script src="script.js"></script>
 </body>
 </html>
