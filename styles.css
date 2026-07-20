@@ -153,6 +153,143 @@ body.dark-mode .navbar {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
+/* Container sizing to fit perfectly inside your layout height */
+.workflow-wheel-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The Central Hub */
+.wheel-center {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, rgba(30, 27, 57, 0.9) 70%);
+    border: 2px solid rgba(139, 92, 246, 0.5);
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.3),
+                inset 0 0 15px rgba(139, 92, 246, 0.2);
+    animation: hubPulse 3s infinite ease-in-out;
+}
+
+.center-text h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.center-text p {
+    color: #a78bfa;
+    font-size: 0.85rem;
+    margin: 2px 0 0 0;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* The Main Spinning Wheel */
+.workflow-wheel {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border: 2px dashed rgba(139, 92, 246, 0.2);
+    border-radius: 50%;
+    animation: spinWheel 30s linear infinite;
+}
+
+/* Individual Step Nodes */
+.wheel-node {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 64px;
+    height: 64px;
+    margin: -32px; /* Centers the div perfectly on the line */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* Mathematical distribution around the circle radius (140px) */
+    transform: rotate(var(--node-angle)) translate(140px) rotate(calc(-1 * var(--node-angle)));
+}
+
+/* Node Icon Design */
+.node-icon {
+    width: 52px;
+    height: 52px;
+    background: #1e1b39;
+    border: 2px solid rgba(139, 92, 246, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a78bfa;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    
+    /* Counter-rotates so the icons stay upright while the wheel spins */
+    animation: unspinNode 30s linear infinite;
+}
+
+/* Step Label Text styling */
+.node-label {
+    position: absolute;
+    bottom: -22px;
+    color: #cbd5e1;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    background: rgba(30, 27, 57, 0.8);
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    
+    /* Counter-rotates so the text labels stay perfectly horizontal */
+    animation: unspinNode 30s linear infinite;
+}
+
+/* Hover Effects */
+.workflow-wheel-container:hover .workflow-wheel,
+.workflow-wheel-container:hover .node-icon,
+.workflow-wheel-container:hover .node-label {
+    animation-play-state: paused;
+}
+
+.wheel-node:hover .node-icon {
+    border-color: #8b5cf6;
+    color: #fff;
+    background: #8b5cf6;
+    transform: scale(1.15);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+    cursor: pointer;
+}
+
+/* Keyframe Animations */
+@keyframes spinWheel {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes unspinNode {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+@keyframes hubPulse {
+    0%, 100% { box-shadow: 0 0 25px rgba(139, 92, 246, 0.2); border-color: rgba(139, 92, 246, 0.4); }
+    50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.5); border-color: rgba(139, 92, 246, 0.8); }
+} 
 /* Hero Section */
 .hero {
     min-height: 100vh;
@@ -361,6 +498,25 @@ section {
 }
 
 .stat p {
+    color: var(--text-light);
+    margin: 0;
+}
+
+.moto {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--bg-color);
+    border-radius: 10px;
+    animation: slideInUp 0.6s ease;
+}
+
+.moto h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.moto p {
     color: var(--text-light);
     margin: 0;
 }
